@@ -158,10 +158,13 @@ public class GameBehavior : MonoBehaviour, IManager
 
         if (showWinScreen)
         {
+            Utilities.RestartLevel(2);
+            /*
             if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 50, 200, 100), "YOU WON!"))
             {
                 Utilities.RestartLevel(0);
             }
+            */
         }
 
         if (showLossScreen)
@@ -175,8 +178,8 @@ public class GameBehavior : MonoBehaviour, IManager
                 }
                 catch (System.ArgumentException e)
                 {
-                    Utilities.RestartLevel(0);
-                    debug("Reverting to scene 0: " + e.ToString());
+                    Utilities.RestartLevel(1);
+                    debug("Reverting to scene 1: " + e.ToString());
                 }
                 finally
                 {
@@ -187,7 +190,7 @@ public class GameBehavior : MonoBehaviour, IManager
 
         if (followerText)
         {
-            GUI.Box(new Rect(Screen.width - 170, 20, 150, 25), "You have " + _followerCount + " followers!");
+            GUI.Box(new Rect(20, 80, 150, 25), "You have " + _followerCount + " followers!");
         }
 
         if (speedLable)
